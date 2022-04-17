@@ -1,0 +1,10 @@
+﻿@model ImageServiceCoreMVC.Models.ImageServiceDb
+
+<body>
+    @using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile" />
+        <input type="submit" id="btnUpload" value="Upload" />
+    }
+    <p>@Html.ActionLink("View All Images", "ViewImages", "Home")</p>
+</body>

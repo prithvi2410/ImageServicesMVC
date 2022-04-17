@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ImageServiceCoreMVC.Models.ImageServiceDb>
+
+<table>
+        @{ foreach (var image in Model)
+           {
+            <tr>
+                <td>@image.Name</td>
+                @{
+                    var base64 = Convert.ToBase64String(image.Data);
+                    var imgscr = String.Format("data:{0};base64,{1}", image.ImageType, base64);
+                }
+                <td><img src=@imgscr alt="sample" style="height:200px;width:400px" /></td>
+            </tr>
+           }
+        }
+</table>
+<p>@Html.ActionLink("Upload Images","UploadImage","Home")</p>

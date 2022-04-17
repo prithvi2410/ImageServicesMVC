@@ -1,0 +1,10 @@
+﻿@model ImageServiceCoreMVC.Models.ImageServiceDb
+<div>
+    <p>@Model.Id</p>
+    <p>@Model.Name</p>
+    @{ 
+        var base64 = Convert.ToBase64String(Model.Data);
+        var imgscr = String.Format("data:{0};base64,{1}",Model.ImageType,base64);
+    }
+    <p><img src=@imgscr  alt="sample"/></p>
+</div>
